@@ -1,0 +1,113 @@
+		$(function(){
+			var isPlay = true; //播放标识
+			var rec_number = $(".x").size()-1; //获取推荐歌曲数量
+			
+			//填充歌曲信息
+			var musicInfo = function(obj){
+				if (1 == obj.parent().children(".music_type").attr("value")) {
+        			m_type="尤克里里";
+        		}else{
+        			m_type="吉他";
+        		};
+        		var href = "videoShow?c_id=" + obj.attr("name");
+        		$("#course_entry").attr("href",href);
+        		$("#m_name").text(obj.parent().find(".getmusicName").text());
+        		$("#m_singer").text(obj.parent().find(".getsinger").text());
+        		$("#m_type").text(m_type);
+			}
+			
+			//播放音乐方法
+			var playMusic = function(i){
+				$("#audio_player").attr("src",$(".x").eq(i).attr("url"));
+				audio_player.play();
+				musicInfo($(".x").eq(i));
+				$(".mplay_right .play_show .pause").css({'background-position':'0px 0'});
+				isPlay = false;
+			}
+			
+			//初始化播放器信息，为第一首推荐歌曲
+			var index = 0; //当前播放歌曲索引	
+			$("#audio_player").attr("src",$(".x").eq(0).attr("url"));
+			musicInfo($(".x").eq(0));
+			
+			$(".heading_navbar a").click(function(){
+				$(this).addClass("titleLi").siblings().removeClass("titleLi");
+			});
+
+			$("#contactUs").click(function(){
+				 swal({   title: "Duang~Duang~Duang~",   text: "编辑短信“我请你吃饭”发送到本人手机 155****8394",   imageUrl: "../images/thumbs-up.jpg" });
+			});
+
+			$("#aboutUsInfo").click(function(){
+				 swal({   title: "关于我们，其实...",   text: "其实我只是过来客串打酱油的..."});
+			});
+
+			//播放器显示与隐藏
+            $('.fade_div').click(function(){
+           		if($(".top_div").css("margin-left") =='0px'){
+    				$('.top_div').css({'margin-left':'0px'}).animate({'margin-left':"-477px"},300);
+    				$('.fade_div').css('background-image','url(../images/InOut.png)');
+ 				}
+				else{
+    				$('.top_div').css({'margin-left':'-477px'}).animate({'margin-left':"0px"},300);
+    				$('.fade_div').css('background-image','url(../images/OutIn.png)');
+ 				}
+            });
+			
+			//点击试听按钮
+            $('.x').click(function(){
+				index = $(".x").index(this);
+				playMusic(index);
+				
+           		if($(".top_div").css("margin-left") =='-477px'){
+	   				$('.top_div').css({'margin-left':'-477px'}).animate({'margin-left':"0px"},300);
+	   				$('.fade_div').css('background-image','url(../images/OutIn.png)');
+ 				}
+           	});
+			            
+			//播放和暂停
+            $("#playBtn").click(function(){
+            	if(isPlay){
+            		audio_player.play();
+            		$(".mplay_right .play_show .pause").css({'background-position':'0px 0'});
+            		isPlay = false;
+            	}
+            	else{
+            		audio_player.pause();   
+               		$(".mplay_right .play_show .pause").css({'background-position':'-45px 0'});
+               		isPlay = true;
+            	}
+            	return false;
+            });
+						
+            //下一首
+            $("#nextBtn").click(function(){
+            	if(index >= rec_number || index < 0) index = 0;
+            	else index++;
+            	playMusic(index);
+            	return false;
+            });
+            
+            //上一首
+ 			$("#preBtn").click(function(){
+ 				if(index > rec_number || index <= 0) index = rec_number;
+            	else index--;
+ 				playMusic(index);
+ 				return false;
+            });
+
+	});
+		
+	$(function(){
+		$(".rec_six").hover(function(){
+			$(".x",this).stop().css({'top':'25px'}).animate({'top':"65px"},300).show();
+			$(".y",this).stop().css({'bottom':'25px'}).animate({'bottom':"65px"},300).show();
+			$('.musicName,.singer',this).hide();
+			$('.fire',this).stop().css({'opacity':'0.4'}).animate({'opacity':"0"},200).show();
+		},function(){
+			$('.musicName',this).stop().css({'margin-left':'0px'}).animate({'margin-left':"18px"},300).show();
+			$('.singer',this).stop().css({'margin-right':'25px'}).animate({'margin-right':"35px"},300).show();
+			$('.fire',this).stop().css({'opacity':'0'}).animate({'opacity':"0.4"},200).show()
+			$('.x,.y',this).hide();
+		});	
+	});

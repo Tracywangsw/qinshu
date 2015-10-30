@@ -1,0 +1,281 @@
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<title>琴书，遇见世界上的另一个你。</title>
+	<meta name="keywords" content="Ukulele,Guitar,音乐,教学" />
+	<meta name="description" content="分享收集有关Ukulele、Guitar的各种音乐，视频教程等等。" />
+	<import type = "js" file="js/jquery-2-1-1"/>
+	<import type = "js" file="js/jquery-1-7-2-min"/>
+	<import type = "js" file="js/sweet-alert-min"/>
+	<import type = "js" file="js/modernizr"/>
+	<import type = "js" file="js/main"/>
+	<import type = "css" file="css/main"/>
+	<import type = "css" file="css/sweet-alert" />
+</head>
+<body>
+	<div class="container">
+	<div class="wrapper">
+		<div class="heading">
+			<div class="heading_title">
+			<img src="../images/logo.png" alt="">
+			</div>
+			<div class="heading_navbar">
+				<ul>
+					<li ><a href=""  style="color:#FFCC00;"class="titleLi">把我唱给你听</a></li>
+					<li><a href="ukulele">Ukulele</a></li>
+					<li><a href="guitar">Guitar</a></li>
+				</ul>
+			</div>
+			<div class="heading_search">
+				<form class="flexsearch--form" action="#" method="post">
+					<div class="flexsearch--input-wrapper">
+						<input class="flexsearch--input" type="search" placeholder="搜索歌曲、歌手">
+					</div>
+					<input class="flexsearch--submit" type="submit" value="&#10140;"/>
+				</form>
+			</div>
+		</div>
+		<div class="body">
+			<div class="recommend">	
+				<div note = "top_songs" style="margin-left:88px;">
+					<volist name="song" id="vo" offset="0" length='4'>
+						<div class="rec_six" >
+					        <img class="overlay" src="../images/Mask.png"/>
+					        <img class="avatar" src="{$vo.picture}"/>
+						    <div class="fire"></div>	
+						    <a href="#" class="music_type" value="{$vo.type}"></a>	    
+						    <a href="javascript:void(0);" class="musicName">{$vo.name}</a>
+						    <a href="javascript:void(0);" class="singer">{$vo.singer}</a>		
+							<a href="javascript:void(0); " class="x" url = "{$vo.audio}" name="{$vo.c_id}"></a>
+							<a href="videoShow?c_id={$vo.c_id}" target = "_blank" class="y"></a>	
+						</div>
+					</volist>
+				</div>
+				<div note = "center_songs">
+					<volist name="song" id="vo" offset="4" length='5'>
+						<div class="rec_six" >
+					        <img class="overlay" src="../images/Mask.png"/>
+					        <img class="avatar" src="{$vo.picture}"/>
+						    <div class="fire"></div>
+						    <a href="#" class="music_type" value="{$vo.type}"></a>			    
+						    <a href="javascript:void(0);" class="musicName">{$vo.name}</a>
+						    <a href="javascript:void(0);" class="singer">{$vo.singer}</a>		
+							<a href="javascript:void(0); " class="x" url = "{$vo.audio}" name="{$vo.c_id}"></a>
+							<a href="videoShow?c_id={$vo.c_id}" target = "_blank" class="y"></a>	
+						</div>
+					</volist>
+				</div>	
+				<div note = "bottom_songs" style="margin-left:88px;">
+					<volist name="song" id="vo" offset="9" length='4'>
+						<div class="rec_six" >
+					        <img class="overlay" src="../images/Mask.png"/>
+					        <img class="avatar" src="{$vo.picture}"/>
+						    <div class="fire"></div>
+						    <a href="#" class="music_type" value="{$vo.type}"></a>			    
+						    <a href="javascript:void(0);" class="musicName">{$vo.name}</a>
+						    <a href="javascript:void(0);" class="singer">{$vo.singer}</a>		
+							<a href="javascript:void(0); " class="x" url = "{$vo.audio}" name="{$vo.c_id}"></a>
+							<a href="videoShow?c_id={$vo.c_id}" target = "_blank" class="y"></a>	
+						</div>
+					</volist>
+				</div>							
+			</div>
+		</div>
+		<div class="footing">
+				<div class="aboutus">
+					<ul>
+					<li><a href="index">首页</a></li>
+					<li><a href=" ">音乐赏析</a></li>
+					<li><a href="video">视频教学</a></li>
+					<li><a href="#">加入我们</a></li>
+					<li><a href="javascript:void(0)" id="aboutUsInfo">关于我们</a></li>
+					<li><a href="javascript:void(0)" id="contactUs">联系我们</a></li>
+					<li><a href="message">在线留言</a></li>
+					</ul>
+				</div>	
+				<br/>
+				<div class="but_foot">
+				©2015 qinshu.lemontool.com 版权所有
+				</div>
+		</div>
+		</div>
+		<div class="top_div">
+			<div class="music_player">
+				<div class="mplay_left">
+				<audio  id = "audio_player" src="" controls="controls" loop="false" hidden="true">
+				</audio>
+					<ul>
+						<li>曲目：<a id="m_name" href="#"></a></li>
+						<li>艺术家：<a id="m_singer" href="#"></a></li>
+						<li id="li_length">乐器：<a id="m_type" href="#"></a></li>
+					</ul>
+				</div>
+				<div class="mplay_right">
+					<div class="teach">
+						<a href="#" target = "_blank" id = "course_entry">进入教学</a>
+					</div>
+					<div  class="play_show">
+							<a href="#" id = "preBtn" class="pre prebtn"></a>
+							<a href="#"  id = "playBtn" class="playbtn pause"></a>
+							<a href="#" id = "nextBtn" class="next nextbtn"></a>
+					</div>
+				</div>
+			</div>
+			<div  class="fade_div">	</div>
+		</div>	
+
+		<div class="cd-bouncy-nav-modal">	
+			<nav>
+				<ul class="cd-bouncy-nav">	
+					<li style=" list-style-type: none;">
+						<div class="side side-left">
+							<div class="intro-content">
+								<div class="profile">
+									<img src="../images/video/video.jpg" alt="视频"/>
+								</div>
+								<h1>
+								<span>视频教学 </span>
+								<span>详情描述 </span>
+								</h1>
+							</div>
+							<div class="overlay"></div>
+						</div>
+					</li>
+					<li style=" list-style-type: none;">
+						<div class="side side-right">
+							<div class="intro-content  tra_right">
+								<div class="profile">
+									<img src="../images/video/videoPic.jpg" alt="曲谱"/>
+								</div>
+								<h1>
+								<span>查看曲谱 </span>
+								<span>详情描述 </span>
+								</h1>
+							</div>
+							<div class="overlay"></div>
+						</div>
+					</li>
+				</ul>
+			</nav>	
+			<a href="#" class="cd-close">Close</a>
+			</div>
+	</div>
+	
+	<script type="text/javascript">
+		$(function(){
+			var isPlay = true; //播放标识
+			var rec_number = $(".x").size()-1; //获取推荐歌曲数量
+			
+			//填充歌曲信息
+			var musicInfo = function(obj){
+				if (1 == obj.parent().children(".music_type").attr("value")) {
+        			m_type="尤克里里";
+        		}else{
+        			m_type="吉他";
+        		};
+        		var href = "videoShow?c_id=" + obj.attr("name");
+        		$("#course_entry").attr("href",href);
+        		$("#m_name").text(obj.parent().children(".musicName").html());
+        		$("#m_singer").text(obj.parent().children(".singer").text());
+        		$("#m_type").text(m_type);
+			}
+			
+			//播放音乐方法
+			var playMusic = function(i){
+				$("#audio_player").attr("src",$(".x").eq(i).attr("url"));
+				audio_player.play();
+				musicInfo($(".x").eq(i));
+				$(".mplay_right .play_show .pause").css({'background-position':'0px 0'});
+				isPlay = false;
+			}
+			
+			//初始化播放器信息，为第一首推荐歌曲
+			var index = 0; //当前播放歌曲索引	
+			$("#audio_player").attr("src",$(".x").eq(0).attr("url"));
+			musicInfo($(".x").eq(0));
+			
+			$(".heading_navbar a").click(function(){
+				$(this).addClass("titleLi").siblings().removeClass("titleLi");
+			});
+
+			$("#contactUs").click(function(){
+				 swal({   title: "Duang~Duang~Duang~",   text: "编辑短信“我请你吃饭”发送到本人手机 155****8394",   imageUrl: "../images/thumbs-up.jpg" });
+			});
+
+			$("#aboutUsInfo").click(function(){
+				 swal({   title: "关于我们，其实...",   text: "其实我只是过来客串打酱油的..."});
+			});
+
+			//播放器显示与隐藏
+            $('.fade_div').click(function(){
+           		if($(".top_div").css("margin-left") =='0px'){
+    				$('.top_div').css({'margin-left':'0px'}).animate({'margin-left':"-477px"},300);
+    				$('.fade_div').css('background-image','url(../images/InOut.png)');
+ 				}
+				else{
+    				$('.top_div').css({'margin-left':'-477px'}).animate({'margin-left':"0px"},300);
+    				$('.fade_div').css('background-image','url(../images/OutIn.png)');
+ 				}
+            });
+			
+			//点击试听按钮
+            $('.x').click(function(){
+				index = $(".x").index(this);
+				playMusic(index);
+				
+           		if($(".top_div").css("margin-left") =='-477px'){
+	   				$('.top_div').css({'margin-left':'-477px'}).animate({'margin-left':"0px"},300);
+	   				$('.fade_div').css('background-image','url(../images/OutIn.png)');
+ 				}
+           	});
+			            
+			//播放和暂停
+            $("#playBtn").click(function(){
+            	if(isPlay){
+            		audio_player.play();
+            		$(".mplay_right .play_show .pause").css({'background-position':'0px 0'});
+            		isPlay = false;
+            	}
+            	else{
+            		audio_player.pause();   
+               		$(".mplay_right .play_show .pause").css({'background-position':'-45px 0'});
+               		isPlay = true;
+            	}
+            	return false;
+            });
+						
+            //下一首
+            $("#nextBtn").click(function(){
+            	if(index >= rec_number || index < 0) index = 0;
+            	else index++;
+            	playMusic(index);
+            	return false;
+            });
+            
+            //上一首
+ 			$("#preBtn").click(function(){
+ 				if(index > rec_number || index <= 0) index = rec_number;
+            	else index--;
+ 				playMusic(index);
+ 				return false;
+            });
+
+	});
+		
+	$(function(){
+		$(".rec_six").hover(function(){
+			$(".x",this).stop().css({'top':'25px'}).animate({'top':"65px"},300).show();
+			$(".y",this).stop().css({'bottom':'25px'}).animate({'bottom':"65px"},300).show();
+			$('.musicName,.singer',this).hide();
+			$('.fire',this).stop().css({'opacity':'0.4'}).animate({'opacity':"0"},200).show();
+		},function(){
+			$('.musicName',this).stop().css({'margin-left':'0px'}).animate({'margin-left':"18px"},300).show();
+			$('.singer',this).stop().css({'margin-right':'25px'}).animate({'margin-right':"35px"},300).show();
+			$('.fire',this).stop().css({'opacity':'0'}).animate({'opacity':"0.4"},200).show()
+			$('.x,.y',this).hide();
+		});	
+	});
+	</script>
+</body>
+</html>

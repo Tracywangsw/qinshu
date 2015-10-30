@@ -1,0 +1,125 @@
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<title>琴书，遇见世界上的另一个你。</title>
+	<meta name="keywords" content="Ukulele,Guitar,音乐,教学" />
+	<meta name="description" content="分享收集有关Ukulele、Guitar的各种音乐，视频教程等等。" />
+	<import type = "js" file="js/jquery-2-1-1"/>
+	<import type = "js" file="js/jquery-1-7-2-min"/>
+	<import type = "js" file="js/sweet-alert-min"/>
+	<import type = "js" file="js/modernizr"/>
+	<import type = "js" file="js/main"/>
+	<import type = "js" file ="js/layout"/>
+	<import type = "css" file="css/main"/>
+	<import type = "css" file="css/sweet-alert" />
+	
+</head>
+<body>
+	<div class="container">
+	<div class="wrapper">
+		<div class="heading">
+			<div class="heading_title" style = "cursor:pointer" onclick="window.location.href='index'">
+				<img src="../images/logo.png"  alt="琴书">
+				</div>
+			<div class="heading_navbar">
+				<ul>
+					<li ><a href=""  style="color:#FFCC00;"class="titleLi">把我唱给你听</a></li>
+					<li><a href="ukulele">Ukulele</a></li>
+					<li><a href="guitar">Guitar</a></li>
+				</ul>
+			</div>
+			<div class="heading_search">
+				<form class="flexsearch--form" action="#" method="post">
+					<div class="flexsearch--input-wrapper">
+						<input class="flexsearch--input" type="search" placeholder="搜索歌曲、歌手">
+					</div>
+					<input class="flexsearch--submit" type="submit" value="&#10140;"/>
+				</form>
+			</div>
+		</div>
+		<div class="body">
+			<div class="recommend">	
+				<div note = "top_songs" style="margin-left:88px;">
+					<volist name="song" id="vo" offset="0" length='4'>
+						<div class="rec_six" >
+					        <img class="overlay" src="../images/Mask.png"/>
+					        <img class="avatar" src="{$vo.picture}"/>
+						    <div class="fire"></div>	
+						    <a href="#" class="music_type" value="{$vo.type}"></a>	    
+						    <a href="javascript:void(0);" class="musicName getmusicName">{$vo.name}</a>
+						    <a href="javascript:void(0);" class="singer getsinger">{$vo.singer}</a>		
+							<a href="javascript:void(0); " class="x tryListen" url = "{$vo.audio}" name="{$vo.c_id}"></a>
+							<a href="videoShow?c_id={$vo.c_id}" target = "_blank" class="y"></a>	
+						</div>
+					</volist>
+				</div>
+				<div note = "center_songs">
+					<volist name="song" id="vo" offset="4" length='5'>
+						<div class="rec_six" >
+					        <img class="overlay" src="../images/Mask.png"/>
+					        <img class="avatar" src="{$vo.picture}"/>
+						    <div class="fire"></div>
+						    <a href="#" class="music_type" value="{$vo.type}"></a>			    
+						    <a href="javascript:void(0);" class="musicName getmusicName">{$vo.name}</a>
+						    <a href="javascript:void(0);" class="singer getsinger">{$vo.singer}</a>		
+							<a href="javascript:void(0); " class="x" url = "{$vo.audio}" name="{$vo.c_id}"></a>
+							<a href="videoShow?c_id={$vo.c_id}" target = "_blank" class="y"></a>	
+						</div>
+					</volist>
+				</div>	
+				<div note = "bottom_songs" style="margin-left:88px;">
+					<volist name="song" id="vo" offset="9" length='4'>
+						<div class="rec_six" >
+					        <img class="overlay" src="../images/Mask.png"/>
+					        <img class="avatar" src="{$vo.picture}"/>
+						    <div class="fire"></div>
+						    <a href="#" class="music_type" value="{$vo.type}"></a>			    
+						    <a href="javascript:void(0);" class="musicName getmusicName">{$vo.name}</a>
+						    <a href="javascript:void(0);" class="singer getsinger">{$vo.singer}</a>		
+							<a href="javascript:void(0); " class="x" url = "{$vo.audio}" name="{$vo.c_id}"></a>
+							<a href="videoShow?c_id={$vo.c_id}" target = "_blank" class="y"></a>	
+						</div>
+					</volist>
+				</div>							
+			</div>
+		</div>
+		<div class="footing">
+				<div class="aboutus">
+					<ul>
+						<!--  <li><a href="#">加入我们</a></li>
+						<li><a href="javascript:void(0)" id="aboutUsInfo">关于我们</a></li>
+						<li><a href="javascript:void(0)" id="contactUs">联系我们</a></li>
+						<li><a href="message">在线留言</a></li>-->
+					</ul>
+				</div>	
+				<br/>
+				<div class="but_foot">
+				©2015 qinshu.lemontool.com 版权所有
+				</div>
+		</div>
+		</div>
+	<div class="top_div" style="margin-top:-26%;">
+		<include file="Layout:player"/>
+		<div class="fade_div">	</div>
+	</div>
+		
+	</div>
+	
+	<script type="text/javascript">		
+	$(function(){
+		$(".rec_six").hover(function(){
+			$(".x",this).stop().css({'top':'25px'}).animate({'top':"65px"},300).show();
+			$(".y",this).stop().css({'bottom':'25px'}).animate({'bottom':"65px"},300).show();
+			$('.musicName,.singer',this).hide();
+			$('.fire',this).stop().css({'opacity':'0.4'}).animate({'opacity':"0"},200).show();
+		},function(){
+			$('.musicName',this).stop().css({'margin-left':'0px'}).animate({'margin-left':"18px"},300).show();
+			$('.singer',this).stop().css({'margin-right':'25px'}).animate({'margin-right':"35px"},300).show();
+			$('.fire',this).stop().css({'opacity':'0'}).animate({'opacity':"0.4"},200).show()
+			$('.x,.y',this).hide();
+		});	
+	});
+	</script>
+</body>
+</html>

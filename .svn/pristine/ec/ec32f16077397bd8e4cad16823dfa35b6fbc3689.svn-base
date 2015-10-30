@@ -1,0 +1,9 @@
+<?php
+return array(
+	'DB_HOST'              => 'localhost', // datebase ip address
+	'DB_NAME'             => 'qinshu',       // datebase name
+	'DB_USER'               => 'root',          // datebase username
+	'DB_PWD'                => 'qwer1234',           // datebase password 
+	'URL_MODEL' 	   => 2
+);
+?>

@@ -1,0 +1,34 @@
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<title>琴书，遇见世界上的另一个你。</title>
+	<meta name="keywords" content="Ukulele,Guitar,音乐,教学" />
+	<meta name="description" content="分享收集有关Ukulele、Guitar的各种音乐，视频教程等等。" />
+	<import type = "css" file="css/main"/>
+</head>
+<body>
+<div>
+	<div class="showVedio">
+
+		<embed 
+		src="{$video}" 
+		type="application/x-shockwave-flash" 
+		allowscriptaccess="always" 
+		allowfullscreen="true" 
+		wmode="opaque" 
+		width="880" 
+		height="600" />
+	
+
+	</div>
+
+	<div class="showPic">
+		<img src="{$score}" title="曲谱部分">
+	</div>
+</div>
+
+
+
+</body>
+</html>

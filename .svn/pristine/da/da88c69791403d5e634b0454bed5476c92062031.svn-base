@@ -1,0 +1,20 @@
+<div class="music_player">
+	<div class="mplay_left">
+		<audio  id = "audio_player" src="" controls="controls" loop="false" hidden="true"></audio>
+		<ul>
+			<li><span>曲目：</span><a id="m_name" href="#"></a></li>
+			<li><span>艺术家：</span><a id="m_singer" href="#"></a></li>
+			<li id="li_length"><span>乐器：</span><a id="m_type" href="#"></a></li>
+		</ul>
+	</div>
+	<div class="mplay_right">
+		<div class="teach">
+			<a href="#" target = "_blank" id = "course_entry">进入教学</a>
+		</div>
+		<div  class="play_show">
+				<a href="#" id = "preBtn" class="pre prebtn"></a>
+				<a href="#"  id = "playBtn" class="playbtn pause"></a>
+				<a href="#" id = "nextBtn" class="next nextbtn"></a>
+		</div>
+	</div>
+</div>

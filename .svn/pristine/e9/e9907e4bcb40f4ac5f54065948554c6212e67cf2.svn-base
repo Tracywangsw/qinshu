@@ -1,0 +1,61 @@
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<title>琴书，遇见另一个你</title>
+	<meta name="keywords" content="Ukulele,Guitar,音乐,教学" />
+	<meta name="description" content="分享收集有关Ukulele、Guitar的各种音乐，视频教程等等。" />
+	<link href="./favicon.ico" rel="SHORTCUT ICON" />
+	<import type = "css" file ="css/video"/>
+</head>
+<body>
+	<div class="container">
+		<div class="heading">
+			<div class="heading_title">
+			琴书
+			</div>
+			<div class="heading_navbar">
+				<ul>
+					<li ><a href="index" >把我唱给你听</a></li>
+					<li><a href="ukulele">Ukulele</a></li>
+					<li><a href=""  style="color:#FFCC00;"class="titleLi">Guitar</a></li>
+				</ul>
+			</div>
+			<div class="heading_search">
+				<form class="flexsearch--form" action="#" method="post">
+					<div class="flexsearch--input-wrapper">
+						<input class="flexsearch--input" type="search" placeholder="搜索歌曲、歌手">
+					</div>
+					<input class="flexsearch--submit" type="submit" value="&#10140;"/>
+				</form>
+			</div>
+		</div>
+		<div class="tName"> Guitar</div>
+		<div class="b_pic">
+			
+		</div>
+		<div class="list_video">
+			<volist name="song" id="vo" offset="0" length='20'>
+				<div class="section" >
+					<div class="section-img">
+						<img src="{$vo.picture}">
+						<a  class="dt-img-cover" href="#"></a>
+					</div>
+					<div class="section-desc">
+						<a  class="section-title" href="#">曲目：{$vo.name}</a>
+						<p>	<a  class="dt-username" href="#">艺术家：{$vo.singer}</a></p>
+						<div class="section-attr">
+									
+						</div>
+					</div>
+				</div>
+			</volist>
+		</div>
+		<div class="footer">
+			<div class="meneame">
+				<a href="?page={$pre_page}"> < </a> 第{$cur_page}/{$page}页 <a href="?page={$next_page}"> > </a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

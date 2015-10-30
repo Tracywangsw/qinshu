@@ -1,0 +1,36 @@
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<title>视频教学--{$title}</title>
+	<meta name="keywords" content="Ukulele,Guitar,音乐,教学" />
+	<meta name="description" content="分享收集有关Ukulele、Guitar的各种音乐，视频教程等等。" />
+	<import type = "css" file="css/main"/>
+	<import type = "js" file="js/jquery-2-1-1"/>
+	<import type = "js" file="js/jquery-1-7-2-min"/>
+	<import type = "js" file = "js/videoShow"/>
+</head>
+<body>
+	<div class="container">
+		<div class="wrapper"><include file = "Layout:header"/></div>
+		<div class="showVedio">
+			<div class = "topName">{$title}</div>
+			<embed 
+			src="{$video}" 
+			type="application/x-shockwave-flash" 
+			allowscriptaccess="always" 
+			allowfullscreen="true" 
+			wmode="opaque" 
+			width="880" 
+			height="600" />
+		</div>
+	
+		<div class="showPic">
+			<ul>
+				
+			</ul>
+		</div>
+		<div style = "display:none;" id = "getscoreList">{$scoreList}</div>
+	</div>
+</body>
+</html>
